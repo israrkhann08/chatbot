@@ -4,7 +4,7 @@ import speech_recognition as sr
 def initialize_engine():
     engine = pyttsx3.init("sapi5")
     voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[1].id)
+    engine.setProperty('voice', voices[0].id)
     rate = engine.getProperty('rate')
     engine.setProperty('rate', rate - 50)  # Corrected line
     volume = engine.getProperty('volume')
@@ -16,4 +16,33 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-speak('hello israr')
+def command():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        r.adjust_for_ambient_noise(source, duration=0.5)
+        print("Listening......")
+        r.pause_threshold=1.0 # properties for the recognizer
+        r.phrase_threshold=0.3
+        r.sample_rate = 48000
+        r.dynamic_energy_threshold = True
+        r.operation_timeout= 5
+        r.non_speaking_duration= 0.5
+        r.dynamic_energy_adjustment = 2
+        r.energy_threshold = 4000
+        r.phrase_time_limit = 10
+        # print(sr.Microphone.list_microphones_names())
+        audio = r.listen(source)
+    try:
+        print('Recognizing.....')
+        query = r.recognize_google(audio, language= 'en-in')
+        print(f"User Said: {query}\n")
+    except Exception as e:
+        print('Say, that again please')
+        return "None"
+    return query
+
+if __name__ =="__main__":
+    while True:
+        query = command().lower()
+        print(query)
+# speak('hello israr How are you')
