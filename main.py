@@ -1,4 +1,6 @@
 import datetime
+import os
+import sys
 import time
 import webbrowser
 import pyautogui
@@ -106,6 +108,27 @@ def schedule():
     if day in week.keys():
         speak(week[day])
 
+def openApp(command):
+    if "calculator" in command:
+        speak("Calculator is open")
+        os.startfile('C:\\windows\\system32\\calc.exe')          # control + .
+    elif "notepad" in command:
+        speak("Notepad is open")
+        os.startfile('C:\\windows\\system32\\notepad.exe')         
+    elif "paint" in command:
+        speak("Paint is open")
+        os.startfile('C:\\windows\\system32\\mspaint.exe')    
+   
+def closeApp(command):
+    if "calculator" in command:
+        speak("Calculator is close")
+        os.system('taskkill /f /im calc.exe')         
+    elif "notepad" in command:
+        speak("Notepad is close")
+        os.system('taskkill /f /im notepad.exe')         
+    elif "paint" in command:
+        speak("Paint is close")
+        os.system('taskkill /f /im mspaint.exe')  
 
 if __name__ =="__main__":
     while True:
@@ -128,4 +151,12 @@ if __name__ =="__main__":
         elif("volume mute" in query) or ("mute the sound " in query):
             pyautogui.press("volumemute")
             speak("Volume muted")  
+        # opening appication feature:
+        elif("open calculator" in query) or ("open notepad" in query) or ("open paint" in query):
+            openApp(query)
+        elif "exit" in query:     # if it is exist inside my query so that they start the infinate loop bease it taking the command again and again      
+            sys.exit()            # import control + .
+        # closing the application
+        elif("close calculator" in query) or ("close notepad" in query) or ("close paint" in query):
+            closeApp(query)
 # speak('hello israr How are you')
