@@ -1,3 +1,5 @@
+import datetime
+import time
 import pyttsx3
 import speech_recognition as sr
 
@@ -43,8 +45,38 @@ def command():
         return "None"
     return query
 
+def cal_day():
+    day = datetime.datetime.today().weekday() + 1
+    day_dist={
+       1: "Monday",
+       2: "Tuesday",
+       3: "Wednesday",
+       4: "Thursday",
+       5: "Friday",
+       6: "Saturday",
+       7: "Sunday"
+    }
+    if day in day_dist.keys():
+        day_of_week =  day_dist[day]
+        print(day_of_week)
+    return day_of_week    
+
+def wishme():
+    hour =int( datetime.datetime.now().hour)   # control + .  import libraray
+    t = time.strftime("%I:%M:%p")
+    day = cal_day()
+
+    if(hour >= 0) and (hour <= 12) and ('AM' in t):
+        speak(f"Good Morning Sir, it's {day} and the time is {t}")
+    elif(hour >= 12) and (hour <= 16) and ('PM' in t):    
+        speak(f"Good afternoon Sir, it's {day} and the time is {t}")
+    else:
+        speak(f"Good evening Sir, it's {day} and the time is {t}")
+
 if __name__ =="__main__":
     while True:
-        query = command().lower()
-        print(query)
+        wishme()
+        # query = command().lower()
+        # query = input("Enter your command ->")
+        # print(query)
 # speak('hello israr How are you')
