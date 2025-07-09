@@ -103,7 +103,7 @@
                 "what are you"
             ],
             "responses": [
-                "I am virtual Assistant, a Deep-Learning based Virtual Assistant"
+                "I am Virtual Assistant, a Deep-Learning based Virtual Assistant"
             ]
         },
         {
@@ -152,7 +152,7 @@
                 "who programmed you"
             ],
             "responses": [
-                "I was made by My self."
+                "I was made by MySelf."
             ]
         },
         {
@@ -244,7 +244,7 @@
                 "how old are you","when were you made","what is your age"
             ],
             "responses": [
-                "I was made in 2025, if that's what you are asking!"
+                "I was made in 2024, if that's what you are asking!"
             ]
         }
     ]
