@@ -1,6 +1,7 @@
 import datetime
 import time
 import webbrowser
+import pyautogui
 import pyttsx3
 import speech_recognition as sr
 
@@ -117,4 +118,14 @@ if __name__ =="__main__":
         # add schedule feature in 
         elif("Schedule Time table" in query) or ("schedule" in query):
             schedule() 
+        # volume up feature add    
+        elif("volume up" in query) or ("increase volume" in query):
+            pyautogui.press("volumeup")   # package install pyautogui
+            speak("Volume increase")  
+        elif("volume down" in query) or ("decrease volume" in query):
+            pyautogui.press("volumedown")
+            speak("Volume decrease")  
+        elif("volume mute" in query) or ("mute the sound " in query):
+            pyautogui.press("volumemute")
+            speak("Volume muted")  
 # speak('hello israr How are you')
