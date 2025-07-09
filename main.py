@@ -73,7 +73,7 @@ def wishme():
         speak(f"Good afternoon Sir, it's {day} and the time is {t}")
     else:
         speak(f"Good evening Sir, it's {day} and the time is {t}")
-        
+
 def social_media(command):
     if 'facebook' in command:
         speak('Opening your facebook')
@@ -90,12 +90,31 @@ def social_media(command):
     else:
         speak('No result found')      
 
+def schedule():
+    day = cal_day().lower()
+    speak("Today your scheduling time table is")
+    week={
+        "monday": "from 9:00 am  to 9:50 am you have algorith class, 11:00 am tp 12:00 pm ou have a DSA class",
+        "tuesday": "from 9:00 am  to 9:50 am you have CCNA class, 11:00 am tp 12:00 pm ou have a web development class",
+        "wednesday": "from 9:00 am  to 9:50 am you have c++ class, 11:00 am tp 12:00 pm ou have a DSA class",
+        "thursday": "from 9:00 am  to 9:50 am you have algorith class, 11:00 am tp 12:00 pm ou have a DSA class",
+        "friday": "from 9:00 am  to 9:50 am you have algorith class, 11:00 am tp 12:00 pm ou have a DSA class",
+        "saturday": "from 9:00 am  to 9:50 am you have algorith class, 11:00 am tp 12:00 pm ou have a DSA class",
+        "sunday": "from 9:00 am  to 9:50 am you have algorith class, 11:00 am tp 12:00 pm ou have a DSA class"
+    }
+    if day in week.keys():
+        speak(week[day])
+
+
 if __name__ =="__main__":
     while True:
-        wishme()
+        # wishme()
         # query = command().lower()
         query = input("Enter your command ->")
         # add social media feature:
         if('facebook' in query) or ('discord' in query) or ('whatsapp' in query) or ('instagram' in query):
             social_media(query)
+        # add schedule feature in 
+        elif("Schedule Time table" in query) or ("schedule" in query):
+            schedule() 
 # speak('hello israr How are you')
