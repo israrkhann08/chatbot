@@ -1,5 +1,6 @@
 import datetime
 import time
+import webbrowser
 import pyttsx3
 import speech_recognition as sr
 
@@ -72,11 +73,29 @@ def wishme():
         speak(f"Good afternoon Sir, it's {day} and the time is {t}")
     else:
         speak(f"Good evening Sir, it's {day} and the time is {t}")
+        
+def social_media(command):
+    if 'facebook' in command:
+        speak('Opening your facebook')
+        webbrowser.open('https://www.facebook.com/')
+    elif 'whatsapp' in command:
+        speak('Opening your Whatsapp')
+        webbrowser.open('https://web.whatsapp.com/')    
+    elif 'discord' in command:
+        speak('Opening your discord server')
+        webbrowser.open('https://www.discord.com/')    
+    elif 'instagram' in command:
+        speak('Opening your instagram')
+        webbrowser.open('https://www.instagram.com/')  
+    else:
+        speak('No result found')      
 
 if __name__ =="__main__":
     while True:
         wishme()
         # query = command().lower()
-        # query = input("Enter your command ->")
-        # print(query)
+        query = input("Enter your command ->")
+        # add social media feature:
+        if('facebook' in query) or ('discord' in query) or ('whatsapp' in query) or ('instagram' in query):
+            social_media(query)
 # speak('hello israr How are you')
