@@ -25,3 +25,6 @@
 
  # --> PAD_SEQUENCES
  tf.keras.preprocessing.sequence.pad_sequences is a utility function in TensorFlow Keras used for normalizing the length of sequences in a dataset. This is particularly crucial in tasks involving sequential data, such as Natural Language Processing (NLP), where input sequences (e.g., sentences) often have varying lengths.
+
+ pip install numpy
+ pip install tensorflow
