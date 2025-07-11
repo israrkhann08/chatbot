@@ -149,6 +149,16 @@ def closeApp(command):
         speak("Paint is close")
         os.system('taskkill /f /im mspaint.exe')  
 
+def browsing(query):
+    if 'google' in query:
+        speak("what shoud i search on google...")
+        s = command().lower()
+        webbrowser.open(f"{s}")
+    elif 'edge' in query:
+        speak("opening your microsoft edge....")
+        os.startfile() # give him path
+
+
 if __name__ =="__main__":
     while True:
         # wishme()
@@ -185,6 +195,11 @@ if __name__ =="__main__":
             for i in data['intents']:
                 if i['tag'] == tag:
                     speak(np.random.choice(i['responses']))
+
+        # apply browsing Techniques:(opem browser and search)
+        elif("open google" in query) or ("open edge" in query):
+            browsing(query)
+
 
 
         elif "exit" in query:     # if it is exist inside my query so that they start the infinate loop bease it taking the command again and again      
