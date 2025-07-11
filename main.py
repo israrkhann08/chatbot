@@ -14,6 +14,18 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import random
 import numpy as np
 # import psutil 
+# from elevenlabs import generate, play
+# from elevenlabs import set_api_key
+# from api_key import api_key_data
+# set_api_key(api_key_data)
+
+# def engine_talk(query):
+#     audio = generate(
+#         text = query,
+#         voice = 'Grace', 
+#         model ="eleven_monolingual_v1"
+#     )
+#     play(audio)
 
 with open("intents.json") as file:
     data = json.load(file)
@@ -174,8 +186,10 @@ def browsing(query):
 #         speak(" we have very low power, please connect to charging otherwise recording should be off...")
 
 if __name__ =="__main__":
+    # engine_talk('hey this is me')
     while True:
         # wishme()
+
         # query = command().lower()
         query = input("Enter your command ->")
         # add social media feature:
