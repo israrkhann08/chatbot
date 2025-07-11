@@ -13,6 +13,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import random
 import numpy as np
+# import psutil 
 
 with open("intents.json") as file:
     data = json.load(file)
@@ -158,6 +159,19 @@ def browsing(query):
         speak("opening your microsoft edge....")
         os.startfile() # give him path
 
+# # def condition():
+# #     usage = str(psutil.cpu_percent())
+# #     speak(f"CPU is at {usage} percentage")
+# #     battery = psutil.sensors_battery()
+# #     percentage = battery.percent
+# #     speak(f" our system have {percentage} percentage battery")
+
+#     if percentage>=80:
+#         speak(" we could have enough charging to continue our recording")
+#     elif percentage>=40 and percentage<=75:
+#         speak(" we should connect our system to charging point to charge our battery")
+#     else:
+#         speak(" we have very low power, please connect to charging otherwise recording should be off...")
 
 if __name__ =="__main__":
     while True:
@@ -200,7 +214,10 @@ if __name__ =="__main__":
         elif("open google" in query) or ("open edge" in query):
             browsing(query)
 
-
+        # System condition check:
+        elif("system condition" in query) or ("condition of the system" in query):
+            speak("checking the system condition")
+            condition()
 
         elif "exit" in query:     # if it is exist inside my query so that they start the infinate loop bease it taking the command again and again      
             sys.exit()            # import control + .
