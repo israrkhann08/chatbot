@@ -97,3 +97,15 @@ model.compile(loss='sparse_categorical_crossentropy', optimizer="adam", metrics=
 
 model.summary()
         
+
+
+
+import elevenlabs 
+voice = elevenlabs.Voice(
+    voice_id = "",
+    settings = elevenlabs.VoiceSettings(
+        stability = 1,
+        similarity_boost = 0.75
+    )
+)
+

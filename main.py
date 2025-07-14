@@ -14,16 +14,16 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import random
 import numpy as np
 # import psutil 
-# from elevenlabs import generate, play
-# from elevenlabs import set_api_key
-# from api_key import api_key_data
-# set_api_key(api_key_data)
+# from elevenlabs import generate, play, set_api_key
+
+# Set the API key directly
+# set_api_key("sk_4c90635a214445e56ec57fc03995baba1172a8b20977b1ac")
 
 # def engine_talk(query):
 #     audio = generate(
-#         text = query,
-#         voice = 'Grace', 
-#         model ="eleven_monolingual_v1"
+#         text=query, 
+#         voice='Grace',
+#         model="eleven_monolingual_v1"
 #     )
 #     play(audio)
 
@@ -186,10 +186,9 @@ def browsing(query):
 #         speak(" we have very low power, please connect to charging otherwise recording should be off...")
 
 if __name__ =="__main__":
-    # engine_talk('hey this is me')
+    # engine_talk("Allow me to introduce myself I am Jarvis, the virtual artificial intelligence and I'm here to assist you with a variety of tasks as best I can, 24 hours a day seven days a week.")
     while True:
         # wishme()
-
         # query = command().lower()
         query = input("Enter your command ->")
         # add social media feature:
@@ -231,7 +230,7 @@ if __name__ =="__main__":
         # System condition check:
         elif("system condition" in query) or ("condition of the system" in query):
             speak("checking the system condition")
-            condition()
+            # condition()
 
         elif "exit" in query:     # if it is exist inside my query so that they start the infinate loop bease it taking the command again and again      
             sys.exit()            # import control + .
