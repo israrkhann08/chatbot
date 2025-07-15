@@ -13,7 +13,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import random
 import numpy as np
-# import psutil 
+import psutil 
 # from elevenlabs import generate, play, set_api_key
 
 # Set the API key directly
@@ -171,19 +171,19 @@ def browsing(query):
         speak("opening your microsoft edge....")
         os.startfile() # give him path
 
-# # def condition():
-# #     usage = str(psutil.cpu_percent())
-# #     speak(f"CPU is at {usage} percentage")
-# #     battery = psutil.sensors_battery()
-# #     percentage = battery.percent
-# #     speak(f" our system have {percentage} percentage battery")
+def condition():
+    usage = str(psutil.cpu_percent())
+    speak(f"CPU is at {usage} percentage")
+    battery = psutil.sensors_battery()
+    percentage = battery.percent
+    speak(f" our system have {percentage} percentage battery")
 
-#     if percentage>=80:
-#         speak(" we could have enough charging to continue our recording")
-#     elif percentage>=40 and percentage<=75:
-#         speak(" we should connect our system to charging point to charge our battery")
-#     else:
-#         speak(" we have very low power, please connect to charging otherwise recording should be off...")
+    if percentage>=80:
+        speak(" we could have enough charging to continue our recording")
+    elif percentage>=40 and percentage<=75:
+        speak(" we should connect our system to charging point to charge our battery")
+    else:
+        speak(" we have very low power, please connect to charging otherwise recording should be off...")
 
 if __name__ =="__main__":
     # engine_talk("Allow me to introduce myself I am Jarvis, the virtual artificial intelligence and I'm here to assist you with a variety of tasks as best I can, 24 hours a day seven days a week.")
@@ -195,7 +195,7 @@ if __name__ =="__main__":
         if('facebook' in query) or ('discord' in query) or ('whatsapp' in query) or ('instagram' in query):
             social_media(query)
         # add schedule feature in 
-        elif("Schedule Time table" in query) or ("schedule" in query):
+        elif("Schedule Time table" in query) or ("schedule" in query) or ("tasks" in query):
             schedule() 
         # volume up feature add    
         elif("volume up" in query) or ("increase volume" in query):
@@ -230,7 +230,7 @@ if __name__ =="__main__":
         # System condition check:
         elif("system condition" in query) or ("condition of the system" in query):
             speak("checking the system condition")
-            # condition()
+            condition()
 
         elif "exit" in query:     # if it is exist inside my query so that they start the infinate loop bease it taking the command again and again      
             sys.exit()            # import control + .
